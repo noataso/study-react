@@ -3,27 +3,19 @@ import styles from '../styles/Home.module.css'
 import {Footer} from "../components/Footer"
 import {Main} from "../components/Main"
 import {Header} from "../components/Header"
-import { useCallback, useEffect } from 'react'
-
-// const handleClick=(e,foo)=> {
-//   console.log(e.target.href)
-//   e.preventDefault();
-//   alert(foo);
-// }
+import { useEffect, useState } from 'react'
 
 export default function Home() {
-  const foo=1;
-//   const handleClick=useCallback((e)=> {
-//   console.log(e.target.href)
-//   e.preventDefault();
-//   alert(foo);
-// },[]);
+  const [count,setCount]=useState(1);
+  // let count=1;
+  const handleClick=(e)=> {
+    setCount(count=>count+1)
+    setCount(count=>count+1)
+  };
 
 useEffect(()=>{
-  console.log("マウント時")
   document.body.style.backgroundColor="lightblue";
   return()=>{
-    console.log("アンマウント時")
     document.body.style.backgroundColor="";
   }
 },[])
@@ -34,14 +26,10 @@ useEffect(()=>{
         <title>Index Page</title>
       </Head>
       <Header />
-      <a
-        href="/about"
-        onClick={(e)=>{
-          handleClick(e,foo)
-        }}
-      >
+      <h1>{count}</h1>
+      <button onClick={(e)=>{handleClick(e,count)}}>
         ボタン
-      </a>
+      </button>
       <Main page="index" />
 
       <Footer />
