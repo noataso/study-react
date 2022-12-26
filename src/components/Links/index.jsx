@@ -1,7 +1,7 @@
 import { useCallback, useState } from 'react';
 import styles from './Links.module.css'
 
-export function Links({items,handleReduce}) {
+export const Links=({items,handleReduce})=> {
   return (
     <div className={styles.grid}>
       <button onClick={handleReduce}>減らす</button>

@@ -1,7 +1,7 @@
 import React from "react";
 import styles from './Headline.module.css'
 
-export function Headline(props) {
+export const Headline=(props)=> {
     // console.log(props.title);
     return (
         <div>
